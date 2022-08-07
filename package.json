@@ -2,7 +2,8 @@
   "name": "04-tareas-todo",
   "version": "0.0.1",
   "description": "TODO APP CONSOLA",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +11,8 @@
   "author": "D4cy0",
   "license": "MIT",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "inquirer": "^9.1.0",
+    "uuid": "^8.3.2"
   }
 }
