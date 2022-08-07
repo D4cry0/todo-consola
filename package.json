@@ -1,0 +1,15 @@
+{
+  "name": "04-tareas-todo",
+  "version": "0.0.1",
+  "description": "TODO APP CONSOLA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "D4cy0",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
