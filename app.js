@@ -1,7 +1,13 @@
 import colors from 'colors';
 
 import { guardarDB, leerDB } from './helpers/guardarArchivo.js';
-import {inquirerMenu,pausa,leerInput} from './helpers/inquirer.js';
+import { inquirerMenu,
+            pausa,
+            leerInput,
+            mostrarListado,
+            listadoTareasBorrar,
+            confirmar,
+            mostrarListadoChecklist } from './helpers/inquirer.js';
 import { Tareas } from './models/tareas.js';
 
 console.clear();
@@ -28,7 +34,28 @@ const main = async() => {
                 break;
         
             case '2':
-                console.log(tareas.listadoArr);
+                mostrarListado(tareas.listadoArr, null);
+                break;
+            case '3':
+                mostrarListado(tareas.listadoArr, true);
+                break;
+            case '4':
+                mostrarListado(tareas.listadoArr, false);
+                break;
+
+            case '5':
+                const ids = await mostrarListadoChecklist(tareas.listadoArr);
+                tareas.toggleCompletadas( ids );
+                break;
+            case '6':
+                const id = await listadoTareasBorrar( tareas.listadoArr );
+                if( id !== '0' ){
+                    const ok = await confirmar('¿Estas seguro?');
+                    if( ok ){
+                        tareas.borrarTarea(id);
+                        console.log('Tarea borrada');
+                    }
+                }
             default:
                 break;
         }
