@@ -28,26 +28,25 @@ const main = async() => {
         opt = await inquirerMenu();
         
         switch (opt) {
-            case '1':
+            case '1': //Agregar una tarea
                 const desc = await leerInput('Descripción:');
                 tareas.crearTarea( desc );
                 break;
         
-            case '2':
+            case '2': //Mostrar todas las tareas
                 mostrarListado(tareas.listadoArr, null);
                 break;
-            case '3':
+            case '3': //Mostrar solo las completadas
                 mostrarListado(tareas.listadoArr, true);
                 break;
-            case '4':
+            case '4': //Mostrar solo las pendientes
                 mostrarListado(tareas.listadoArr, false);
                 break;
-
-            case '5':
+            case '5': //Completar tareas
                 const ids = await mostrarListadoChecklist(tareas.listadoArr);
                 tareas.toggleCompletadas( ids );
                 break;
-            case '6':
+            case '6': //Borrar tareas
                 const id = await listadoTareasBorrar( tareas.listadoArr );
                 if( id !== '0' ){
                     const ok = await confirmar('¿Estas seguro?');
